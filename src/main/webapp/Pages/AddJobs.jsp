@@ -97,7 +97,7 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <div class="container">
+                                    <div style="padding: 0px" class="container">
                                         <label>Job Type:</label>
                                         <div class="select">
                                             <select name="jobtype" class="form-control">
@@ -125,17 +125,9 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-md-12">
-                                <div class="form-group">
-                                    <label>Job Description :</label>
-                                    <textarea name="jobdesc" class="form-control"></textarea>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <div class="container">
+                                    <div style="padding: 0" class="container">
                                         <label>JobAdder:</label>
                                         <div class="select">
                                             <select name="JobAdder" class="form-control">
@@ -154,6 +146,29 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <div style="padding: 0" class="container">
+
+                                        <div class="form-group">
+                                            <label>Vacancy :</label>
+                                            <input type="text" name="vacancy" class="form-control" placeholder="Select Vacancy"/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label>Job Description :</label>
+                                    <textarea name="jobdesc" class="form-control"></textarea>
+                                </div>
+                            </div>
+                        </div>
+
                     </section>
                     <button class="btn btn-primary" type="submit" id="buttonsubmit" name="submit">Submit</button>
                 </form>

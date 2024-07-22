@@ -14,8 +14,11 @@ public class AddJobData {
     private String jobdesc;
     private String jobAdder;
     private byte[] cimg;
+    private String vacancy;
 
-    public AddJobData(String jobname, String companyname, String city, String state, String email, String phone, String salary, String jobtype, String startdate, String enddate, String jobdesc, String jobAdder, byte[] cimg) {
+
+
+    public AddJobData(String jobname, String companyname, String city, String state, String email, String phone, String salary, String jobtype, String startdate, String enddate, String jobdesc, String jobAdder, byte[] cimg, String vacancy) {
         this.jobname = jobname;
         this.companyname = companyname;
         this.city = city;
@@ -29,6 +32,7 @@ public class AddJobData {
         this.jobdesc = jobdesc;
         this.jobAdder = jobAdder;
         this.cimg = cimg;
+        this.vacancy = vacancy;
     }
 
     // Getters and Setters
@@ -134,5 +138,12 @@ public class AddJobData {
 
     public void setCimg(String cimg) {
         this.cimg = cimg.getBytes();
+    }
+    public String getVacancy() {
+        return vacancy;
+    }
+
+    public void setVacancy(String vacancy) {
+        this.vacancy = vacancy;
     }
 }

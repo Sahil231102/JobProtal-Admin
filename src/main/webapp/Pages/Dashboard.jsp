@@ -2,7 +2,8 @@
 <%@ page import="java.sql.DriverManager" %>
 <%@ page import="DAO.MyDatabase" %>
 <%@ page import="java.sql.Statement" %>
-<%@ page import="java.sql.ResultSet" %><%--
+<%@ page import="java.sql.ResultSet" %>
+<%@ page import="java.util.Base64" %><%--
   Created by IntelliJ IDEA.
   User: DELL
   Date: 05-06-2024
@@ -123,6 +124,7 @@
             </thead>
             <tbody>
             <%
+                int number =0;
                 try {
                     Class.forName("com.mysql.cj.jdbc.Driver");
                     Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/job-junction","root","");
@@ -140,14 +142,16 @@
                         String jobAdd = rs.getString("Job_Add_Date");
                         String jobdes = rs.getString("JobDescription");
                         String jobadder = rs.getString("JobAdder");
-                        String cimg = rs.getString("companyImg");
-                        String cimagepath = "upload/" + cimg;
+                        byte[] cimg = rs.getBytes("companyImg");
+                        String imgByte = Base64.getEncoder().encodeToString(cimg);
+                        String cimgs = "data:image/png;base64," + imgByte;
+                        number++;
             %>
             <tr>
-                <td><%= job_id %></td>
+                <td><%=number%></td>
                 <td class="table-plus">
                     <div class="wrapper">
-                        <div class="box box1 imgBox"><img class="imgBox" src="<%= cimagepath %>" alt="Company Image"></div>
+                        <div class="box box1 imgBox"><img class="imgBox" src="<%= cimgs %>" alt="Company Image"></div>
                     </div>
                 </td>
                 <td><%= job_Name %></td>

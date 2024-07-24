@@ -163,7 +163,7 @@
                 <td>
                     <div class="dropdown-menu-icon-list">
                         <a class="btn btn-link font-24 p-0 line-height-1 no-arrow dropdown-toggle" href="#" role="button" data-toggle="dropdown">
-                            <i class="dw dw-more"></i>
+                            <i class="fa-solid fa-ellipsis-vertical"></i>
                         </a>
                         <div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
                             <a class="dropdown-item" href="#"><i class="dw dw-eye"></i> View</a>

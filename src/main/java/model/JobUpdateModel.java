@@ -14,9 +14,9 @@ public class JobUpdateModel {
   private String jobtype;
   private String jobAdder;
     private String jobDescription;
-    private String cimg;
+    private byte[] cimg;
 
-    public JobUpdateModel(String jobId,String jobName,String company_Name,String city,String state,String salary,String jobtype,String jobAdder,String jobDescription,String startDate,String endDate,String email,String phone,String cimg) {
+    public JobUpdateModel(String jobId,String jobName,String company_Name,String city,String state,String salary,String jobtype,String jobAdder,String jobDescription,String startDate,String endDate,String email,String phone,byte[] cimg) {
         this.jobId = jobId;
         this.jobName = jobName;
         this.company_Name = company_Name;
@@ -139,11 +139,11 @@ public class JobUpdateModel {
         this.phone = phone;
     }
 
-    public String getCimg() {
+    public byte[] getCimg() {
         return cimg;
     }
 
     public void setCimg(String cimg) {
-        this.cimg = cimg;
+        this.cimg = cimg.getBytes();
     }
 }

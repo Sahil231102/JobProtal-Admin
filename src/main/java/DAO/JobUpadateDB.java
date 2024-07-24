@@ -26,7 +26,7 @@ public class JobUpadateDB {
             ps.setString(10, jobUpdateModel.getEndDate());
             ps.setString(11, jobUpdateModel.getJobDescription());
             ps.setString(12, jobUpdateModel.getJobAdder());
-            ps.setString(13,jobUpdateModel.getCimg());
+            ps.setBytes(13,jobUpdateModel.getCimg());
             ps.setString(14, jobUpdateModel.getJobId());
 
             int jobUpdate = ps.executeUpdate();

@@ -10,8 +10,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
 
 
 @WebServlet(name = "JobUpdateServlet", value = "/JobUpdateServlet")
@@ -38,12 +40,11 @@ public class JobUpdateServlet extends HttpServlet {
         String jobadder = req.getParameter("JobAdder");
         Part cimg = req.getPart("cimg");
 
-        String imgname = extractFileName(cimg);
-        String imguploadpath = "D:/AdminSide/src/main/webapp/upload/" + imgname;  // Construct the complete upload path
-        cimg.write(imguploadpath);
+        InputStream inputStream = cimg.getInputStream();
+        byte[] newcimgs = readByteFromInputstream(inputStream);
 
         // Create JobUpdateModel object
-        JobUpdateModel jobUpdateModel = new JobUpdateModel(job_id, job_Name, company_Name, city, state, salary, jobType, jobadder, jobdes, startDate, endDate, email, phone, imgname);
+        JobUpdateModel jobUpdateModel = new JobUpdateModel(job_id, job_Name, company_Name, city, state, salary, jobType, jobadder, jobdes, startDate, endDate, email, phone, newcimgs);
 
         // Update job in the database
         JobUpadateDB jDB = new JobUpadateDB();
@@ -57,16 +58,17 @@ public class JobUpdateServlet extends HttpServlet {
             System.out.println("Failed to update job");
             resp.sendRedirect("./?pn=jobinfo");
         }
+
+    }
+    private byte[] readByteFromInputstream(InputStream inputStream) throws IOException {
+        ByteArrayOutputStream buffer = new ByteArrayOutputStream();
+        int  ByteRead;
+        byte[] data = new byte[1024];
+        while((ByteRead=inputStream.read(data,0, data.length))!=-1)
+        {
+            buffer.write(data,0,ByteRead);
+        }
+        return buffer.toByteArray();
     }
 
-    private String extractFileName(Part part) {
-        String contentDisp = part.getHeader("content-disposition");
-        String[] items = contentDisp.split(";");
-        for (String s : items) {
-            if (s.trim().startsWith("filename")) {
-                return s.substring(s.indexOf("=") + 2, s.length() - 1);
-            }
-        }
-        return "";
-    }
 }

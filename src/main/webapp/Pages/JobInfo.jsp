@@ -258,39 +258,39 @@ body
                                     <input type="text" name="id" class="form-control" placeholder="ID" value="<%=job_id%>" readonly>
                                 </div>
                                 <div class="form-group">
-                                    <input type="text" name="job_Name" class="form-control" placeholder="job_Name"/>
+                                    <input type="text" name="job_Name" class="form-control" placeholder="job_Name" value="<%=job_Name%>"/>
                                 </div>
                                 <div class="form-group">
-                                    <input type="text" name="company_Name" class="form-control" placeholder="company_Name"/>
+                                    <input type="text" name="company_Name" class="form-control" placeholder="company_Name" value="<%=company_Name%>"/>
                                 </div>
                                 <div class="form-group">
-                                    <input type="text" name="email" class="form-control" placeholder="Email"/>
+                                    <input type="text" name="email" class="form-control" placeholder="Email"value="<%=email%>"/>
                                 </div>
                                 <div class="form-group">
-                                    <input type="tel" name="phone" class="form-control" maxlength="10" placeholder="Phone Number"/>
+                                    <input type="tel" name="phone" class="form-control" maxlength="10" placeholder="Phone Number"value="<%=phone%>"/>
                                 </div>
                                 <div class="form-group">
-                                    <input type="text" name="city" class="form-control" placeholder="city"/>
+                                    <input type="text" name="city" class="form-control" placeholder="city"value="<%=city%>"/>
                                 </div>
                                 <div class="form-group">
-                                    <input type="text" name="state" class="form-control" placeholder="State"/>
+                                    <input type="text" name="state" class="form-control" placeholder="State"value="<%=state%>"/>
                                 </div>
                                 <div class="form-group">
-                                    <input type="text" name="salary" class="form-control" placeholder="salary"/>
+                                    <input type="text" name="salary" class="form-control" placeholder="salary" value="<%=salary%>"/>
                                 </div>
                                 <div class="form-group">
-                                    <input type="date" name="startDate" class="form-control" placeholder="startDate"/>
+                                    <input type="date" name="startDate" class="form-control" placeholder="startDate"value="<%=startDate%>"/>
                                 </div>
                                 <div class="form-group">
-                                    <input type="date" name="endDate" class="form-control" placeholder="endDate"/>
+                                    <input type="date" name="endDate" class="form-control" placeholder="endDate"value="<%=endDate%>"/>
                                 </div>
                                 <div class="form-group">
-                                    <div class="select">
+                                    <div class="select" >
 
-                                            <select name="jobType" class="form-control-range">
+                                            <select name="jobType" class="form-control-range" >
                                                 <option value="">Select Job Type</option>
-                                                <option value="Full Time">Full Time</option>
-                                                <option value="Part Time">Part Time</option>
+                                                <option value="<%=jobType%>">Full Time</option>
+                                                <option value="<%=jobType%>">Part Time</option>
                                             </select>
 
                                     </div>
@@ -302,7 +302,7 @@ body
                                     <textarea name="JobDescription" class="form-control" placeholder="JobDescription"></textarea>
                                 </div>
                                 <div class="form-group">
-                                    <input type="file" name="cimg"  accept="image/*" class="form-control"/>
+                                    <input type="file" name="cimg" class="form-control"/>
                                 </div>
 
                             </div>

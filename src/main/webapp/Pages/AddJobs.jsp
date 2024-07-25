@@ -141,14 +141,6 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label>Upload Image :</label>
-                                    <input type="file" id="img" name="cimg" class="form-control"/>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="form-group">
                                     <div style="padding: 0" class="container">
 
                                         <div class="form-group">
@@ -156,7 +148,42 @@
                                             <input type="text" name="vacancy" class="form-control" placeholder="Select Vacancy"/>
                                         </div>
                                     </div>
+
                                 </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <div style="padding: 0" class="container">
+                                        <label>Company Image :</label>
+                                        <input type="file"  name="cimg" class="form-control"/>
+
+                                    </div>
+
+
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <div style="padding: 0" class="container">
+
+                                        <div class="form-group">
+                                            <div style="padding: 0" class="container">
+                                                <label>Hiring Poster :</label>
+                                                <input type="file" name="Hpimg" class="form-control"/>
+
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+
                             </div>
 
                         </div>

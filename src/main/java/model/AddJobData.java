@@ -14,11 +14,12 @@ public class AddJobData {
     private String jobdesc;
     private String jobAdder;
     private byte[] cimg;
+    private byte[] Hpimg;
     private String vacancy;
 
 
 
-    public AddJobData(String jobname, String companyname, String city, String state, String email, String phone, String salary, String jobtype, String startdate, String enddate, String jobdesc, String jobAdder, byte[] cimg, String vacancy) {
+    public AddJobData(String jobname, String companyname, String city, String state, String email, String phone, String salary, String jobtype, String startdate, String enddate, String jobdesc, String jobAdder, byte[] cimg, String vacancy,byte[] hpimg) {
         this.jobname = jobname;
         this.companyname = companyname;
         this.city = city;
@@ -32,7 +33,9 @@ public class AddJobData {
         this.jobdesc = jobdesc;
         this.jobAdder = jobAdder;
         this.cimg = cimg;
+
         this.vacancy = vacancy;
+        this.Hpimg = hpimg;
     }
 
     // Getters and Setters
@@ -145,5 +148,17 @@ public class AddJobData {
 
     public void setVacancy(String vacancy) {
         this.vacancy = vacancy;
+    }
+
+    public void setCimg(byte[] cimg) {
+        this.cimg = cimg;
+    }
+
+    public byte[] getHpimg() {
+        return Hpimg;
+    }
+
+    public void setHpimg(byte[] hpimg) {
+        Hpimg = hpimg;
     }
 }

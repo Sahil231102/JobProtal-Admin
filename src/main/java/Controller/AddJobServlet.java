@@ -35,8 +35,13 @@ public class AddJobServlet extends HttpServlet {
         String jobAdder = req.getParameter("JobAdder");
         String Vacancy = req.getParameter("vacancy");
         Part cimg = req.getPart("cimg");
+
         InputStream inputStream = cimg.getInputStream();
         byte[] addjobimg = readFile(inputStream);
+
+        Part Posterimg = req.getPart("Hpimg");
+        InputStream inputStream1 = Posterimg.getInputStream();
+        byte[] posterimg = readFile(inputStream1);
 
 
 
@@ -44,7 +49,7 @@ public class AddJobServlet extends HttpServlet {
 //        String imguploadpath = getServletContext().getRealPath("/") + "upload/" + imgname;
 //        cimg.write(imguploadpath);
 
-        AddJobData jobdata = new AddJobData(jobname, companyname, city, state, email, phone, salary, jobtype, startdate, enddate, jobdesc, jobAdder, addjobimg,Vacancy);
+        AddJobData jobdata = new AddJobData(jobname, companyname, city, state, email, phone, salary, jobtype, startdate, enddate, jobdesc, jobAdder, addjobimg,Vacancy,posterimg);
         JobAddDB jDB = new JobAddDB();
         boolean insert = jDB.insertJob(jobdata);
 

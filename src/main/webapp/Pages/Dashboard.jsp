@@ -112,12 +112,8 @@
             <thead>
             <tr>
                 <th class="tbl-srt">Job_id</th>
-                <th class="tbl-srt">Company_Images</th>
-                <th class="tbl-srt">Job_Name</th>
-                <th class="tbl-srt">Company_Name</th>
-                <th class="tbl-srt">City</th>
-                <th class="tbl-srt">StartDate</th>
-                <th class="tbl-srt">JobType</th>
+                <th class="tbl-srt">Job Title</th>
+
                 <th class="tbl-srt">jobAdder</th>
                 <th class="datatable-nosort">Action</th>
             </tr>
@@ -127,23 +123,20 @@
                 int number =0;
                 try {
                     Class.forName("com.mysql.cj.jdbc.Driver");
-                    Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/job-junction","root","");
+                    Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/job-portal","root","");
                     Statement st = con.createStatement();
-                    ResultSet rs = st.executeQuery("select * from add_job order by job_id ASC ");
+                    ResultSet rs = st.executeQuery("select * from job_add ");
                     while (rs.next()) {
-                        int job_id = rs.getInt("job_id");
-                        String job_Name = rs.getString("job_Name");
-                        String company_Name = rs.getString("company_Name");
-                        String city = rs.getString("city");
-                        String salary = rs.getString("salary");
-                        String startDate = rs.getString("startDate");
-                        String endDate = rs.getString("endDate");
-                        String jobType = rs.getString("jobType");
-                        String jobAdd = rs.getString("Job_Add_Date");
-                        String jobdes = rs.getString("JobDescription");
+                        int job_id = rs.getInt("j_id");
+                        String job_Title = rs.getString("Job_Title");
+                        String EmploymentType = rs.getString("EmploymentType");
+                        String jobAddDate = rs.getString("JobAddDate");
+                        String jobdes = rs.getString("JobDescripton");
+                        String QualificationAndSkill = rs.getString("Qualification_and_skill");
+                        String Benefits = rs.getString("Benefits");
                         String jobadder = rs.getString("JobAdder");
-                        byte[] cimg = rs.getBytes("companyImg");
-                        String imgByte = Base64.getEncoder().encodeToString(cimg);
+                        byte[] Pimg = rs.getBytes("PosterImg");
+                        String imgByte = Base64.getEncoder().encodeToString(Pimg);
                         String cimgs = "data:image/png;base64," + imgByte;
                         number++;
             %>
@@ -154,12 +147,19 @@
                         <div class="box box1 imgBox"><img class="imgBox" src="<%= cimgs %>" alt="Company Image"></div>
                     </div>
                 </td>
-                <td><%= job_Name %></td>
-                <td><%= company_Name %></td>
-                <td><%= city %></td>
-                <td><%= startDate %></td>
-                <td><%= jobType %></td>
-                <td><%= jobadder %></td>
+                <td class="table-plus">
+                    <div class="wrapper">
+                        <div class="box box1 imgBox"><img class="imgBox" src="<%= cimgs %>" alt="Company Image"></div>
+                    </div>
+                </td>
+                <td><%=job_Title%></td>
+                <td><%=jobadder %></td>
+                <td><%=EmploymentType %></td>
+                <td><%=Benefits %></td>
+                <td><%=jobdes %></td>
+               <td> <%=QualificationAndSkill%></td>
+
+
                 <td>
                     <div class="dropdown-menu-icon-list">
                         <a class="btn btn-link font-24 p-0 line-height-1 no-arrow dropdown-toggle" href="#" role="button" data-toggle="dropdown">

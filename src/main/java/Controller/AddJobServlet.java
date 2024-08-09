@@ -35,6 +35,16 @@ public class AddJobServlet extends HttpServlet {
         byte[] posterimg = readFile(inputStream1);
 
 
+        System.out.println(r_id);
+        System.out.println(jobTitle);
+        System.out.println(Minsalary);
+        System.out.println(Maxsalary);
+        System.out.println(EmploymentType);
+        System.out.println(Jobdesc);
+        System.out.println(Qualification_skill);
+        System.out.println(Benefits);
+        System.out.println(jobAdder);
+
 
 //        String imgname = extractFileName(cimg);
 //        String imguploadpath = getServletContext().getRealPath("/") + "upload/" + imgname;
@@ -44,6 +54,7 @@ public class AddJobServlet extends HttpServlet {
         JobAddDB jDB = new JobAddDB();
         boolean insert = jDB.insertJob(jobdata);
 
+        System.out.println(insert);
         if (insert) {
             resp.sendRedirect("./?pn=AJ");
         }

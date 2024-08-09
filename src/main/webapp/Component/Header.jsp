@@ -122,8 +122,8 @@
 
                     if(rs.next())
                     {
-                        String fname = rs.getString("First_name");
-                        String lname = rs.getString("Last_name");
+                        String fname = rs.getString("Fname");
+                        String lname = rs.getString("Lname");
 
 
 

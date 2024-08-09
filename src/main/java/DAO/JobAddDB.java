@@ -8,7 +8,7 @@ import java.sql.PreparedStatement;
 public class JobAddDB {
 
     public boolean insertJob(AddJobData addJobData) {
-        String sql = "INSERT INTO job_add (r_id, Job_Title, EmploymentType, Minsalary, Maxsalary, JobDescripton, Qualification_and_Skill, Benefits, PosterImg, JobAdder) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO job_add (r_id, Job_Title, EmploymentType, Minsalary, Maxsalary, JobDescripton, QualifiBenefitscation_and_Skill,Benefits, PosterImg, JobAdder) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
         try {
             Connection con = MyDatabase.getConnection();

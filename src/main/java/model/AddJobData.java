@@ -1,122 +1,72 @@
 package model;
 
 public class AddJobData {
-    private String jobname;
-    private String companyname;
-    private String city;
-    private String state;
-    private String email;
-    private String phone;
-    private String salary;
-    private String jobtype;
-    private String startdate;
-    private String enddate;
+    private String r_id;
+    private String jobTitle;
+    private String minsalary;
+    private String maxsalary;
+    private String EmploymentType;
     private String jobdesc;
+    private String Qualificaton_skill;
+    private String Benefites;
     private String jobAdder;
-    private byte[] cimg;
+
     private byte[] Hpimg;
-    private String vacancy;
 
-
-
-    public AddJobData(String jobname, String companyname, String city, String state, String email, String phone, String salary, String jobtype, String startdate, String enddate, String jobdesc, String jobAdder, byte[] cimg, String vacancy,byte[] hpimg) {
-        this.jobname = jobname;
-        this.companyname = companyname;
-        this.city = city;
-        this.state = state;
-        this.email = email;
-        this.phone = phone;
-        this.salary = salary;
-        this.jobtype = jobtype;
-        this.startdate = startdate;
-        this.enddate = enddate;
+    public AddJobData(String rId, String jobTitle, String employmentType, String minsalary, String maxsalary, String jobdesc, String qualificationSkill, String benefits, byte[] posterimg, String jobAdder) {
+        this.r_id=rId;
+        this.jobTitle = jobTitle;
+        this.minsalary = minsalary;
+        this.maxsalary = maxsalary;
+        this.EmploymentType = employmentType;
         this.jobdesc = jobdesc;
+        this.Qualificaton_skill = qualificationSkill;
+        this.Benefites = benefits;
         this.jobAdder = jobAdder;
-        this.cimg = cimg;
-
-        this.vacancy = vacancy;
-        this.Hpimg = hpimg;
+        this.Hpimg = posterimg;
     }
 
     // Getters and Setters
-    public String getJobname() {
-        return jobname;
+
+
+    public String getR_id() {
+        return r_id;
     }
 
-    public void setJobname(String jobname) {
-        this.jobname = jobname;
+    public void setR_id(String r_id) {
+        this.r_id = r_id;
     }
 
-    public String getCompanyname() {
-        return companyname;
+    public String getJobTitle() {
+        return jobTitle;
     }
 
-    public void setCompanyname(String companyname) {
-        this.companyname = companyname;
+    public void setJobTitle(String jobTitle) {
+        this.jobTitle = jobTitle;
     }
 
-    public String getCity() {
-        return city;
+    public String getMinsalary() {
+        return minsalary;
     }
 
-    public void setCity(String city) {
-        this.city = city;
+    public void setMinsalary(String minsalary) {
+        this.minsalary = minsalary;
     }
 
-    public String getState() {
-        return state;
+    public String getMaxsalary() {
+        return maxsalary;
     }
 
-    public void setState(String state) {
-        this.state = state;
+    public void setMaxsalary(String maxsalary) {
+        this.maxsalary = maxsalary;
     }
 
-    public String getEmail() {
-        return email;
+    public String getEmploymentType() {
+        return EmploymentType;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getPhone() {
-        return phone;
-    }
-
-    public void setPhone(String phone) {
-        this.phone = phone;
-    }
-
-    public String getSalary() {
-        return salary;
-    }
-
-    public void setSalary(String salary) {
-        this.salary = salary;
-    }
-
-    public String getJobtype() {
-        return jobtype;
-    }
-
-    public void setJobtype(String jobtype) {
-        this.jobtype = jobtype;
-    }
-
-    public String getStartdate() {
-        return startdate;
-    }
-
-    public void setStartdate(String startdate) {
-        this.startdate = startdate;
-    }
-
-    public String getEnddate() {
-        return enddate;
-    }
-
-    public void setEnddate(String enddate) {
-        this.enddate = enddate;
+    public void setEmploymentType(String employmentType) {
+        EmploymentType = employmentType;
     }
 
     public String getJobdesc() {
@@ -127,31 +77,28 @@ public class AddJobData {
         this.jobdesc = jobdesc;
     }
 
+    public String getQualificaton_skill() {
+        return Qualificaton_skill;
+    }
+
+    public void setQualificaton_skill(String qualificaton_skill) {
+        Qualificaton_skill = qualificaton_skill;
+    }
+
+    public String getBenefites() {
+        return Benefites;
+    }
+
+    public void setBenefites(String benefites) {
+        Benefites = benefites;
+    }
+
     public String getJobAdder() {
         return jobAdder;
     }
 
     public void setJobAdder(String jobAdder) {
         this.jobAdder = jobAdder;
-    }
-
-    public byte[] getCimg() {
-        return cimg;
-    }
-
-    public void setCimg(String cimg) {
-        this.cimg = cimg.getBytes();
-    }
-    public String getVacancy() {
-        return vacancy;
-    }
-
-    public void setVacancy(String vacancy) {
-        this.vacancy = vacancy;
-    }
-
-    public void setCimg(byte[] cimg) {
-        this.cimg = cimg;
     }
 
     public byte[] getHpimg() {

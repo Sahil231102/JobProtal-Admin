@@ -8,28 +8,24 @@ import java.sql.PreparedStatement;
 public class JobAddDB {
 
     public boolean insertJob(AddJobData addJobData) {
-        String sql = "INSERT INTO add_job (Job_Name, Company_Name, City, State, Email, Phone_Number, Salary, JobType, StartDate, EndDate, JobDescription, JobAdder, companyImg,Posterimg,vacancy) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,?,?)";
+        String sql = "INSERT INTO job_add (r_id, Job_Title, EmploymentType, Minsalary, Maxsalary, JobDescripton, Qualification_and_Skill, Benefits, PosterImg, JobAdder) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
         try {
             Connection con = MyDatabase.getConnection();
             PreparedStatement psmt = con.prepareStatement(sql);
 
 
-            psmt.setString(1, addJobData.getJobname());
-            psmt.setString(2, addJobData.getCompanyname());
-            psmt.setString(3, addJobData.getCity());
-            psmt.setString(4, addJobData.getState());
-            psmt.setString(5, addJobData.getEmail());
-            psmt.setString(6, addJobData.getPhone());
-            psmt.setString(7, addJobData.getSalary());
-            psmt.setString(8, addJobData.getJobtype());
-            psmt.setString(9, addJobData.getStartdate());
-            psmt.setString(10, addJobData.getEnddate());
-            psmt.setString(11, addJobData.getJobdesc());
-            psmt.setString(12, addJobData.getJobAdder());
-            psmt.setBytes(13, addJobData.getCimg());
-            psmt.setBytes(14,addJobData.getHpimg());
-            psmt.setString(15,addJobData.getVacancy());
+            psmt.setString(1, addJobData.getR_id());
+            psmt.setString(2, addJobData.getJobTitle());
+            psmt.setString(3, addJobData.getEmploymentType());
+            psmt.setString(4, addJobData.getMinsalary());
+            psmt.setString(5, addJobData.getMaxsalary());
+            psmt.setString(6, addJobData.getJobdesc());
+            psmt.setString(7, addJobData.getQualificaton_skill());
+            psmt.setString(8, addJobData.getBenefites());
+            psmt.setBytes(9, addJobData.getHpimg());
+            psmt.setString(10, addJobData.getJobAdder());
+
 
             int jobInsert = psmt.executeUpdate();
             return jobInsert > 0;

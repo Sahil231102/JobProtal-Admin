@@ -1,11 +1,11 @@
 package model;
 
 public class LoginModel {
-    private String phone;
+    private String Email;
     private String password;
 
-    public LoginModel(String phone, String password) {
-        this.phone = phone;
+    public LoginModel(String email, String password) {
+        this.Email  = email;
         this.password = password;
     }
 
@@ -17,11 +17,11 @@ public class LoginModel {
         this.password = password;
     }
 
-    public String getPhone() {
-        return phone;
+    public String getEmail() {
+        return Email;
     }
 
-    public void setPhone(String phone) {
-        this.phone = phone;
+    public void setEmail(String email) {
+        Email = email;
     }
 }

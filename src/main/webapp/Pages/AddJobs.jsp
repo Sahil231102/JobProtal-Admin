@@ -46,61 +46,20 @@
             <div class="wizard-content">
                 <form id="jobForm" action="AddJobServlet" method="post" enctype="multipart/form-data">
                     <section>
+                        <input type="hidden" value="1" name="r_id">
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label>Job Name :</label>
-                                    <input type="text" name="jobname" class="form-control" required/>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label>Company Name :</label>
-                                    <input type="text" name="companyname" class="form-control" required/>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label>Enter City :</label>
-                                    <input type="text" name="city" class="form-control"/>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label>Enter state :</label>
-                                    <input type="text" name="state" class="form-control"/>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label>Email Address :</label>
-                                    <input type="email" name="email" class="form-control"/>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label>Phone Number :</label>
-                                    <input type="text" name="phone" class="form-control"/>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label>Enter Salary :</label>
-                                    <input type="number" name="salary" class="form-control"/>
+                                    <label>Job Title :</label>
+                                    <input type="text" name="jobTitle" class="form-control" required/>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <div style="padding: 0px" class="container">
-                                        <label>Job Type:</label>
+                                        <label>Employment Type:</label>
                                         <div class="select">
-                                            <select name="jobtype" class="form-control">
+                                            <select name="EmploymentType" class="form-control" required>
                                                 <option value="">Select Type</option>
                                                 <option value="Full Time">Full Time</option>
                                                 <option value="Part Time">Part Time</option>
@@ -109,89 +68,72 @@
                                     </div>
                                 </div>
                             </div>
+
+
                         </div>
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label>Start Date :</label>
-                                    <input type="text" name="startdate" class="form-control date-picker" placeholder="Select Date"/>
+                                    <label>Enter Minimum Salary :</label>
+                                    <input type="number" name="Minsalary" class="form-control"/>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label>End Date :</label>
-                                    <input type="text" name="enddate" class="form-control date-picker" placeholder="Select Date"/>
+                                    <label>Enter Maximum Salary :</label>
+                                    <input type="number" name="Maxsalary" class="form-control"/>
                                 </div>
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <div style="padding: 0" class="container">
-                                        <label>JobAdder:</label>
-                                        <div class="select">
-                                            <select name="JobAdder" class="form-control">
-                                                <option value="null">Select Type</option>
-                                                <option value="Admin">Admin</option>
 
-                                            </select>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <div style="padding: 0" class="container">
 
-                                        <div class="form-group">
-                                            <label>Vacancy :</label>
-                                            <input type="text" name="vacancy" class="form-control" placeholder="Select Vacancy"/>
-                                        </div>
-                                    </div>
-
-                                </div>
-                            </div>
                         </div>
+
                         <div class="row">
                             <div class="col-md-6">
-                                <div class="form-group">
-                                    <div style="padding: 0" class="container">
-                                        <label>Company Image :</label>
-                                        <input type="file"  name="cimg" class="form-control"/>
-
-                                    </div>
-
+                            <div class="form-group">
+                                <div style="padding: 0px" class="container">
+                                    <label>Hiring Poster :</label>
+                                    <input type="file" name="Hpimg" class="form-control"/>
 
                                 </div>
                             </div>
+
+                            </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <div style="padding: 0" class="container">
-
-                                        <div class="form-group">
-                                            <div style="padding: 0" class="container">
-                                                <label>Hiring Poster :</label>
-                                                <input type="file" name="Hpimg" class="form-control"/>
-
-                                            </div>
-
-                                        </div>
-                                    </div>
-
+                                    <label>Job Adder :</label>
+                                    <input type="text"  value="Admin" name="JobAdder" class="form-control" readonly/>
                                 </div>
                             </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6">
 
                             </div>
 
-                        </div>
+
+
+
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <label>Job Description :</label>
                                     <textarea name="jobdesc" class="form-control"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label>Qualification And Skill :</label>
+                                    <textarea name="Qualification_skill" class="form-control"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label>Benefits :</label>
+                                    <textarea name="Benefits" class="form-control"></textarea>
                                 </div>
                             </div>
                         </div>
@@ -203,6 +145,9 @@
         </div>
     </div>
 </div>
+<script>
+
+</script>
 <%--<script>--%>
 <%--    $(document).ready(function() {--%>
 <%--        $("#buttonsubmit").click(function(event) {--%>

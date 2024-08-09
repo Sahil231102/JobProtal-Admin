@@ -58,7 +58,7 @@
             <form action="./LoginServlet" method="post" enctype="multipart/form-data" class="login" id="userLoginForm" >
                 <img src="vendors/images/5573512_2919973.svg" width="300px" class="center">
                 <div class="field">
-                    <input type="text" placeholder="Admin Phone Number" name="phone" id="phone" required>
+                    <input type="text" placeholder="Admin Email " name="email" id="email" required>
                 </div>
                 <div class="field">
                     <input type="password" name="password" placeholder="Password" id="userPassword" required>

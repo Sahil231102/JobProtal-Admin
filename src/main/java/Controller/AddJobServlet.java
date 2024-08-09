@@ -21,24 +21,15 @@ public class AddJobServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String jobname = req.getParameter("jobname");
-        String companyname = req.getParameter("companyname");
-        String city = req.getParameter("city");
-        String state = req.getParameter("state");
-        String email = req.getParameter("email");
-        String phone = req.getParameter("phone");
-        String salary = req.getParameter("salary");
-        String jobtype = req.getParameter("jobtype");
-        String startdate = req.getParameter("startdate");
-        String enddate = req.getParameter("enddate");
-        String jobdesc = req.getParameter("jobdesc");
+        String r_id = req.getParameter("r_id");
+        String jobTitle = req.getParameter("jobTitle");
+        String Minsalary = req.getParameter("Minsalary");
+        String Maxsalary = req.getParameter("Maxsalary");
+        String EmploymentType = req.getParameter("EmploymentType");
+        String Jobdesc = req.getParameter("jobdesc");
+        String Qualification_skill = req.getParameter("Qualification_skill");
+        String Benefits = req.getParameter("Benefits");
         String jobAdder = req.getParameter("JobAdder");
-        String Vacancy = req.getParameter("vacancy");
-        Part cimg = req.getPart("cimg");
-
-        InputStream inputStream = cimg.getInputStream();
-        byte[] addjobimg = readFile(inputStream);
-
         Part Posterimg = req.getPart("Hpimg");
         InputStream inputStream1 = Posterimg.getInputStream();
         byte[] posterimg = readFile(inputStream1);
@@ -49,7 +40,7 @@ public class AddJobServlet extends HttpServlet {
 //        String imguploadpath = getServletContext().getRealPath("/") + "upload/" + imgname;
 //        cimg.write(imguploadpath);
 
-        AddJobData jobdata = new AddJobData(jobname, companyname, city, state, email, phone, salary, jobtype, startdate, enddate, jobdesc, jobAdder, addjobimg,Vacancy,posterimg);
+        AddJobData jobdata = new AddJobData(r_id, jobTitle, EmploymentType, Minsalary, Maxsalary, Jobdesc, Qualification_skill, Benefits, posterimg, jobAdder);
         JobAddDB jDB = new JobAddDB();
         boolean insert = jDB.insertJob(jobdata);
 

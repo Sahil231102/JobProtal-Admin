@@ -154,20 +154,20 @@
 
             if(rs.next())
             {
-                String fname = rs.getString("First_name");
-                String lname = rs.getString("Last_name");
+                String fname = rs.getString("Fname");
+                String lname = rs.getString("Lname");
                 String email = rs.getString("Email");
                 String Gender = rs.getString("Gender");
                 String password = rs.getString("Password");
-                String phone = rs.getString("Contect_Number");
-                String cimg = rs.getString("Image");
+                String phone = rs.getString("PhoneNumber");
+//                String cimg = rs.getString("Aimg");
 
 
 
 
     %>
     <div class="left">
-        <img src="${pageContext.request.contextPath}/upload/IMG_0537.jpg"
+        <img src="${pageContext.request.contextPath}/vendors/images/JobDetails.jpg"
              alt="user" width="200">
         <h5 style="color: #f0f0f0"><%=fname%><%=lname%> </h5>
         <p>Admin</p>

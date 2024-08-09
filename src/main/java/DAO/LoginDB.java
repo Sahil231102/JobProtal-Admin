@@ -8,13 +8,13 @@ import java.sql.SQLException;
 
 public class LoginDB {
     public boolean LoginAdmin(LoginModel loginModel) {
-        String sql = "SELECT * FROM admin WHERE Contect_Number = ? AND Password = ?";
+        String sql = "SELECT * FROM admin WHERE Email = ? AND Password = ?";
 
         try {
             Connection con = MyDatabase.getConnection();
             PreparedStatement ps = con.prepareStatement(sql);
 
-            ps.setString(1, loginModel.getPhone());
+            ps.setString(1, loginModel.getEmail());
             ps.setString(2, loginModel.getPassword());
 
             System.out.println("Executing query: " + ps.toString());  // Log the query for debugging

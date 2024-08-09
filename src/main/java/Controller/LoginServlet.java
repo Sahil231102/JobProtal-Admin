@@ -21,10 +21,10 @@ public class LoginServlet extends HttpServlet {
         PrintWriter out = resp.getWriter();
         // Remove the call to super.doPost(req, resp);
         try {
-            String phone = req.getParameter("phone");
+            String email = req.getParameter("email");
             String password = req.getParameter("password");
 
-            LoginModel loginModel = new LoginModel(phone, password);
+            LoginModel loginModel = new LoginModel(email, password);
             LoginDB Ldb = new LoginDB();
             boolean AdminLogin = Ldb.LoginAdmin(loginModel);
 

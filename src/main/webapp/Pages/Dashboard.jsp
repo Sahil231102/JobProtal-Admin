@@ -108,14 +108,19 @@
 
     <div class="card-box d-lg-table-cell">
         <h2 class="h4 pd-20">Best Job</h2>
-        <table class="data-table table nowrap">
+        <table class="data-table table nowrap" >
             <thead>
             <tr>
                 <th class="tbl-srt">Job_id</th>
+                <th class="tbl-srt">Company Img</th>
+                <th class="tbl-srt">Poster Img</th>
+                <th class="tbl-srt"> Company Name </th>
                 <th class="tbl-srt">Job Title</th>
 
-                <th class="tbl-srt">jobAdder</th>
-                <th class="datatable-nosort">Action</th>
+                <th class="tbl-srt">JobAdder</th>
+                <th class="tbl-srt">Employment Type</th>
+                <th class="datatable-nosort">Job Add Date</th>
+
             </tr>
             </thead>
             <tbody>
@@ -155,9 +160,7 @@
                 <td><%=job_Title%></td>
                 <td><%=jobadder %></td>
                 <td><%=EmploymentType %></td>
-                <td><%=Benefits %></td>
-                <td><%=jobdes %></td>
-               <td> <%=QualificationAndSkill%></td>
+              <td><%=jobAddDate%></td>
 
 
                 <td>

@@ -124,11 +124,6 @@
                     {
                         String fname = rs.getString("Fname");
                         String lname = rs.getString("Lname");
-
-
-
-
-
             %>
             <a
                     class="dropdown-toggle"

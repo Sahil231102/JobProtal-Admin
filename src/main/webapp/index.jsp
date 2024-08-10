@@ -21,6 +21,7 @@
     <link rel="stylesheet" type="text/css" href="vendors/styles/core.css" />
     <link rel="stylesheet" type="text/css" href="vendors/styles/card-3.css" />
     <link rel="stylesheet" type="text/css" href="vendors/styles/style.css"/>
+    <link rel="stylesheet" href="./vendors/styles/seekerApplyStyle.css">
 
 
 
@@ -143,10 +144,10 @@
     <jsp:include page="/Pages/Dashboard.jsp"/>
     <%
             break;
-        case "AJ":
+        case "SeekerApply":
 //        case "true": // Include AddFaculty.jsp for both "AddFaculty" and "true"
     %>
-    <jsp:include page="/Pages/AddJobs.jsp"/>
+    <jsp:include page="/Pages/SeekerApply.jsp"/>
     <%
             break;
         case "userinfo":
@@ -174,24 +175,14 @@
     <jsp:include page="/Pages/profile.jsp"/>
     <%
             break;
-        case "Faculty":
+        case "SeekerSignUp":
     %>
-    <jsp:include page="/Pages/Faculty.jsp"/>
+    <jsp:include page="/Pages/SeekerSignUpData.jsp"/>
     <%
             break;
-        case "FacultyDet":
+        case "RecruiterSignUp":
     %>
-    <jsp:include page="/Pages/FacultyDetails.jsp"/>
-    <%
-            break;
-        case "StudentQry":
-    %>
-    <jsp:include page="/Pages/StudentQuery.jsp"/>
-    <%
-            break;
-        case "AdmPF":
-    %>
-    <jsp:include page="/Pages/Profile.jsp"/>
+    <jsp:include page="/Pages/RecruiterSignUpData.jsp"/>
     <%
             break;
         case "ResetPass":

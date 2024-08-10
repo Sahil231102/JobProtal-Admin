@@ -44,12 +44,10 @@
                 <li class="dropdown">
                     <a href="javascript:;" class="dropdown-toggle">
 								<span class="micon bi bi-textarea-resize"></span
-                                ><span class="mtext">Forms</span>
+                                ><span class="mtext">Apply</span>
                     </a>
                     <ul class="submenu">
-
-                        <li><a href="./?pn=AJ">Add Job</a></li>
-
+                        <li><a href="./?pn=SeekerApply">Seeker Apply</a></li>
                     </ul>
                 </li>
                 <li class="dropdown">
@@ -59,8 +57,8 @@
                     </a>
                     <ul class="submenu">
 
-                        <li><a href="./?pn=userinfo">User</a></li>
-                        <li><a href="./?pn=vendorinfo">Vendor</a></li>
+                        <li><a href="./?pn=SeekerSignUp">Seeker</a></li>
+                        <li><a href="./?pn=RecruiterSignUp">Recruiter </a></li>
                     </ul>
                 </li>
 

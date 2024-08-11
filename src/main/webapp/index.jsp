@@ -180,7 +180,7 @@
     <jsp:include page="/Pages/SeekerSignUpData.jsp"/>
     <%
             break;
-        case "RecruiterSignUp":
+        case "x":
     %>
     <jsp:include page="/Pages/RecruiterSignUpData.jsp"/>
     <%

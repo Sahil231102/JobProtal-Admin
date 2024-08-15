@@ -163,7 +163,6 @@
                                         <div class="card__footer" style="font-family: 'Josefin Sans', sans-serif;font-size: 20px">
                                            <%=startDate%>
                                         </div>
-
                                     </div>
                                     <!-- Card HTML End -->
                                 </div>

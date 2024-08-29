@@ -29,7 +29,7 @@ public class LoginServlet extends HttpServlet {
             boolean AdminLogin = Ldb.LoginAdmin(loginModel);
 
             if (AdminLogin) {
-                out.println("<script>alert('Login Suceessfully')</script>");
+                out.println("<script>alert('Login Successfully')</script>");
                 RequestDispatcher rd = req.getRequestDispatcher("/index.jsp");
                 rd.forward(req, resp);
             } else {

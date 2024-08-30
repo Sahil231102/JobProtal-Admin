@@ -185,9 +185,9 @@
     <jsp:include page="/Pages/RecruiterSignUpData.jsp"/>
     <%
             break;
-        case "ResetPass":
+        case "SeekerInfo":
     %>
-    <jsp:include page="/Pages/ResetPassword.jsp"/>
+    <jsp:include page="Pages/SeekerInfo.jsp"/>
     <%
             break;
         default:

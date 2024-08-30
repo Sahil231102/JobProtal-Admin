@@ -74,14 +74,7 @@
             border-radius: 4px;
         }
 
-        .btn {
-            padding: 8px 12px;
-            background-color: #007bff;
-            color: #fff;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-        }
+
         .btn-remove {
             padding: 8px 12px;
             background-color: red;
@@ -91,65 +84,82 @@
             cursor: pointer;
         }
 
+
         .btn:hover {
             background-color: black;
             color: whitesmoke;
+        }
+        img
+        {
+            height: 60px;
+            width: 60px;
+            object-fit: cover;
         }
     </style>
     <title>Seeker Register Data</title>
 </head>
 <body>
-<div class="container">
-    <h2>Seeker Register Data</h2>
-    <ul class="responsive-table">
-        <li class="table-header">
-            <div class="col col-1">Id</div>
-            <div class="col col-2">Seeker Img</div>
-            <div class="col col-2">Full Name</div>
-            <div class="col col-2">Email</div>
-            <div class="col col-2">Phone Number</div>
-            <div class="col col-2">Register Date</div>
-            <div class="col col-2">Actions</div>
-            <div class="col col-2">Actions</div>
-        </li>
-        <%
+<form>
+    <div class="container">
+        <h2>Seeker Register Data</h2>
+        <ul class="responsive-table">
+            <li class="table-header">
+                <div class="col col-1">Id</div>
+                <div class="col col-2">Seeker Img</div>
+                <div class="col col-2">Full Name</div>
+                <div class="col col-2">Email</div>
+                <div class="col col-2">Phone Number</div>
+                <div class="col col-2">Register Date</div>
+                <div class="col col-2">Actions</div>
+                <div class="col col-2">Actions</div>
+            </li>
+            <%
 
-            try
-            {
-                Connection con = MyDatabase.getConnection();
-                Statement st = con.createStatement();
-
-                ResultSet rs = st.executeQuery("select * from Seeker");
-                int i = 1;
-                while (rs.next())
+                try
                 {
-                    String Fname = rs.getString("fname");
-                    String lname = rs.getString("lname");
-                    String Email = rs.getString("email");
-                    String phoneNumber = rs.getString("phoneNumber");
-                    byte[] simg = rs.getBytes("simg");
-                    String imgByte1 = Base64.getEncoder().encodeToString(simg);
-                    String simgs = "data:image/png;base64," + imgByte1;
-        %>
-        <li class="table-row">
-            <div class="col col-1" data-label="Id"><%= i++ %></div>
-            <div class="col col-2" data-label="Company Img"><img src="<%= simgs %>" alt="Company Image"></div>
-            <div class="col col-2" data-label="Company Name"><%= Fname %> <%=lname%></div>
-            <div class="col col-2" data-label="Email"><%= Email %></div>
-            <div class="col col-2" data-label="Phone Number"><%= phoneNumber %></div>
-            <div class="col col-2" data-label="Job Apply Date">21-08-2024</div>
-            <div class="col col-2" data-label="Actions"><input type="button" class="btn" value="View"></div>
-            <div class="col col-2" data-label="Actions"><input type="button" class="btn-remove" value="Remove"></div>
-        </li>
-        <%
+                    Connection con = MyDatabase.getConnection();
+                    Statement st = con.createStatement();
+
+                    ResultSet rs = st.executeQuery("select * from Seeker");
+                    int i = 1;
+                    while (rs.next())
+                    {
+                        String s_id = rs.getString("s_id");
+                        String Fname = rs.getString("fname");
+                        String lname = rs.getString("lname");
+                        String Email = rs.getString("email");
+                        String phoneNumber = rs.getString("phoneNumber");
+                        byte[] simg = rs.getBytes("simg");
+                        String imgByte1 = Base64.getEncoder().encodeToString(simg);
+                        String simgs = "data:image/png;base64," + imgByte1;
+            %>
+            <li class="table-row">
+                <div class="col col-1" data-label="Id"><%= i++ %></div>
+                <div class="col col-2" data-label="Company Img"><img src="<%= simgs %>" alt="Company Image"></div>
+                <div class="col col-2" data-label="Company Name"><%= Fname %> <%=lname%></div>
+                <div class="col col-2" data-label="Email"><%= Email %></div>
+                <div class="col col-2" data-label="Phone Number"><%= phoneNumber %></div>
+                <div class="col col-2" data-label="Job Apply Date">21-08-2024</div>
+                <div class="col col-2" data-label="Actions">
+                    <button type="button" class="btn btn-primary" onclick="window.location.href='./?pn=SeekerInfo&s_id=<%=s_id%>'">
+                        View
+                    </button>
+                </div>
+                <div class="col col-2" data-label="Actions"> <form action="seekerRemoveServlet" method="post">
+                    <input type="hidden" name="s_id" value="<%= s_id %>">
+                    <button type="submit" class="btn btn-danger">Remove</button>
+                </form></div>
+            </li>
+            <%
+                    }
                 }
-            }
-            catch (Exception e)
-            {
-                e.printStackTrace();
-            }
-        %>
-    </ul>
-</div>
+                catch (Exception e)
+                {
+                    e.printStackTrace();
+                }
+            %>
+        </ul>
+    </div>
+</form>
 </body>
 </html>

@@ -15,17 +15,18 @@ import java.io.IOException;
 public class seekerRemoveServlet extends HttpServlet {
 
     @Override
+
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String s_id = req.getParameter("s_id");
+        System.out.println(s_id);
 
         SeekerRemoveModel seekerRemoveModel = new SeekerRemoveModel(s_id);
         SeekerRemoveDB sDB = new SeekerRemoveDB();
         boolean Remove = sDB.SeekerRemoveDB(seekerRemoveModel);
 
-        if (Remove)
+        if(Remove)
         {
-            RequestDispatcher rd = req.getRequestDispatcher("./?pn=SeekerSignUp");
-            rd.forward(req, resp);
+            resp.sendRedirect("./?pn=SeekerSignUp");
         }
         else
         {
@@ -36,3 +37,4 @@ public class seekerRemoveServlet extends HttpServlet {
 
     }
 }
+

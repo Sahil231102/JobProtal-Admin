@@ -33,14 +33,16 @@
 
         .responsive-table {
             list-style: none;
+
             padding: 0;
             margin: 0;
         }
 
-        .table-header {
+        .table-header1 {
             display: flex;
             justify-content: space-between;
-            background-color: #f1f1f1;
+            background-color: #0b132b;
+            color: white;
             padding: 15px;
             border-bottom: 2px solid #e1e1e1;
         }
@@ -82,14 +84,6 @@
             cursor: pointer;
         }
 
-        .btn-remove {
-            padding: 8px 12px;
-            background-color: red;
-            color: #fff;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-        }
 
         .btn:hover {
             background-color: black;
@@ -101,14 +95,15 @@
 <body>
 <div class="container">
     <h2>Job Data</h2>
-    <ul class="responsive-table">
-        <li class="table-header">
+    <ul class="responsive-table" >
+        <li class="table-header1">
             <div class="col col-1">No</div>
             <div class="col col-2">Company Img</div>
             <div class="col col-2">Company Name</div>
             <div class="col col-2">Job Title</div>
+            <div class="col col-2">Employment Type</div>
             <div class="col col-2">Job Add Date</div>
-            <div class="col col-2">Register Date</div>
+
             <div class="col col-2">Actions</div>
         </li>
         <%
@@ -119,23 +114,25 @@
                 Statement st = con.createStatement();
 
                 // Note: Use formatted_date in the SELECT statement
-                ResultSet rs = st.executeQuery("SELECT job_add.*,recruiter.* DATE_FORMAT(job_add.JobAddDate, '%M %e %Y') AS formatted_date FROM job_add INNER JOIN recuruiter ON job_add.r_id = recuruiter.r_id");
+                ResultSet rs = st.executeQuery("SELECT *, DATE_FORMAT(job_add.JobAddDate, '%M %e %Y') AS formatted_date FROM job_add INNER JOIN recuruiter ON job_add.r_id = recuruiter.r_id");
                 int i = 1;
                 while (rs.next())
                 {
-//                    String Company_Name = rs.getString("Company_Name");
+                    String Company_Name = rs.getString("Company_Name");
 String Job_Title = rs.getString("job_add.Job_Title");
 //                    String phoneNumber = rs.getString("Phone_Number");
-                    String jobAddDate = rs.getString("formatted_date"); // Get the formatted date
-                    byte[] cimg = rs.getBytes("recuruiter.Cimg");
+                    String EmploymentType = rs.getString("EmploymentType");
+                    String jobAddDate = rs.getString("formatted_date");
+                                      byte[] cimg = rs.getBytes("recuruiter.Cimg");
                     String imgByte1 = Base64.getEncoder().encodeToString(cimg);
                     String cimgs = "data:image/png;base64," + imgByte1;
         %>
         <li class="table-row">
             <div class="col col-1" data-label="Id"><%= i++ %></div>
             <div class="col col-2" data-label="Company Img"><img src="<%= cimgs %>" alt="Company Image"></div>
-<%--            <div class="col col-2" data-label="Company Name"><%= Company_Name %></div>--%>
-            <div class="col col-2" data-label="Job Title"><%= Job_Title %></div>
+            <div class="col col-2" data-label="Company Name"><%= Company_Name %></div>
+            <div class="col col-2" data-label="Company Name"><%= Job_Title %></div>
+            <div class="col col-2" data-label="Job Title"><%= EmploymentType %></div>
             <div class="col col-2" data-label="Job Add Date"><%= jobAddDate %></div> <!-- Display formatted date -->
             <div class="col col-2" data-label="Actions"><input type="button" class="btn" value="View"></div>
         </li>

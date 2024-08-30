@@ -74,14 +74,7 @@
             border-radius: 4px;
         }
 
-        .btn {
-            padding: 8px 12px;
-            background-color: #007bff;
-            color: #fff;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-        }
+
         .btn-remove {
             padding: 8px 12px;
             background-color: red;
@@ -123,6 +116,7 @@
                 int i = 1;
                 while (rs.next())
                 {
+                    String r_id = rs.getString("r_id");
                     String CompanyName = rs.getString("Company_Name");
                     String Email = rs.getString("Email");
                     String PhoneNumber = rs.getString("Phone_Number");
@@ -137,8 +131,11 @@
             <div class="col col-2" data-label="Email"><%= Email %></div>
             <div class="col col-2" data-label="Phone Number"><%= PhoneNumber %></div>
             <div class="col col-2" data-label="Job Apply Date">21-08-2024</div>
-            <div class="col col-2" data-label="Actions"><input type="button" class="btn" value="View"></div>
-            <div class="col col-2" data-label="Actions"><input type="button" class="btn-remove" value="Remove"></div>
+            <div class="col col-2" data-label="Actions"><input type="button" class="btn btn-dark" value="View"></div>
+            <form action="RecruiterRemoveServlet" method="post">
+                <input type="hidden" name="r_id" value="<%= r_id %>">
+                <button type="submit" class="btn btn-danger">Remove</button>
+            </form>
         </li>
         <%
                 }

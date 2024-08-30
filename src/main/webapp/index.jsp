@@ -162,7 +162,7 @@
             break;
         case "vendorinfo":
     %>
-    <jsp:include page="/Pages/Vendorinfo.jsp"/>
+    <jsp:include page="/Pages/RecruiterSignUpData.jsp"/>
     <%
             break;
         case "jobinfo":
@@ -180,7 +180,7 @@
     <jsp:include page="/Pages/SeekerSignUpData.jsp"/>
     <%
             break;
-        case "x":
+        case "RecruiterSignUp":
     %>
     <jsp:include page="/Pages/RecruiterSignUpData.jsp"/>
     <%

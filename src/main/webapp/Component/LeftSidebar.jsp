@@ -68,10 +68,10 @@
                 <li class="dropdown">
                     <a href="javascript:;" class="dropdown-toggle">
 								<span class="micon bi bi-back"></span
-                                ><span class="mtext">Job Details</span>
+                                ><span class="mtext">Job </span>
                     </a>
                     <ul class="submenu">
-                        <li><a href="./?pn=jobDetails">Job Details</a></li>
+                        <li><a href="./?pn=jobDetails">Job</a></li>
                     </ul>
                 </li>
 

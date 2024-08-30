@@ -116,10 +116,10 @@
                 <th class="tbl-srt">Poster Img</th>
                 <th class="tbl-srt"> Company Name </th>
                 <th class="tbl-srt">Job Title</th>
-
-                <th class="tbl-srt">JobAdder</th>
                 <th class="tbl-srt">Employment Type</th>
                 <th class="datatable-nosort">Job Add Date</th>
+                <th class="tbl-srt">Employment Type</th>
+
 
             </tr>
             </thead>
@@ -130,19 +130,22 @@
                     Class.forName("com.mysql.cj.jdbc.Driver");
                     Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/job-portal","root","");
                     Statement st = con.createStatement();
-                    ResultSet rs = st.executeQuery("select * from job_add ");
+                    ResultSet rs = st.executeQuery("select * from job_add inner join  recuruiter on job_add.r_id = recuruiter.r_id");
                     while (rs.next()) {
                         int job_id = rs.getInt("j_id");
+                        String companyName = rs.getString("Company_name");
                         String job_Title = rs.getString("Job_Title");
                         String EmploymentType = rs.getString("EmploymentType");
                         String jobAddDate = rs.getString("JobAddDate");
                         String jobdes = rs.getString("JobDescripton");
                         String QualificationAndSkill = rs.getString("Qualification_and_skill");
                         String Benefits = rs.getString("Benefits");
-                        String jobadder = rs.getString("JobAdder");
+                        byte[] cimg = rs.getBytes("Cimg");
+                        String imgByte1 = Base64.getEncoder().encodeToString(cimg);
+                        String cimgs = "data:image/png;base64," + imgByte1;
                         byte[] Pimg = rs.getBytes("PosterImg");
                         String imgByte = Base64.getEncoder().encodeToString(Pimg);
-                        String cimgs = "data:image/png;base64," + imgByte;
+                        String pimgs = "data:image/png;base64," + imgByte;
                         number++;
             %>
             <tr>
@@ -154,26 +157,19 @@
                 </td>
                 <td class="table-plus">
                     <div class="wrapper">
-                        <div class="box box1 imgBox"><img class="imgBox" src="<%= cimgs %>" alt="Company Image"></div>
+                        <div class="box box1 imgBox"><img class="imgBox" src="<%= pimgs %>" alt="Company Image"></div>
                     </div>
                 </td>
+                <td><%=companyName%></td>
                 <td><%=job_Title%></td>
-                <td><%=jobadder %></td>
+
                 <td><%=EmploymentType %></td>
               <td><%=jobAddDate%></td>
 
 
-                <td>
-                    <div class="dropdown-menu-icon-list">
-                        <a class="btn btn-link font-24 p-0 line-height-1 no-arrow dropdown-toggle" href="#" role="button" data-toggle="dropdown">
-                            <i class="fa-solid fa-ellipsis-vertical"></i>
-                        </a>
-                        <div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
-                            <a class="dropdown-item" href="#"><i class="dw dw-eye"></i> View</a>
-                            <a class="dropdown-item" href="#"><i class="dw dw-edit2"></i> Edit</a>
-                            <a class="dropdown-item" href="#"><i class="dw dw-delete-3"></i> Delete</a>
-                        </div>
-                    </div>
+                <td >
+                   <input type="button" class=" btn btn-primary" value="View">
+                   <input type="button" class=" btn btn-danger" value="Remove">
                 </td>
             </tr>
             <%

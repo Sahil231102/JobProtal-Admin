@@ -25,6 +25,7 @@
 
 
 
+
     <link
             rel="stylesheet"
             type="text/css"
@@ -189,7 +190,14 @@
     %>
     <jsp:include page="Pages/SeekerInfo.jsp"/>
     <%
+        break;
+        case "Jobinfo":
+    %>
+    <jsp:include page="Pages/JobInfo.jsp"/>
+    <%
+
             break;
+
         default:
             // Page not found, show 404 error
             response.setStatus(404); // Set HTTP 404 status

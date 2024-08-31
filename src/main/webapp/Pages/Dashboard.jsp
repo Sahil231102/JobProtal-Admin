@@ -168,8 +168,9 @@
 
 
                 <td >
-                   <input type="button" class=" btn btn-primary" value="View">
-                   <input type="button" class=" btn btn-danger" value="Remove">
+                    <input type="button" class="btn btn-primary" value="View" onclick="window.location.href='.?pn=Jobinfo&j_id=<%=job_id%>';">
+
+                    <input type="button" class=" btn btn-danger" value="Remove">
                 </td>
             </tr>
             <%

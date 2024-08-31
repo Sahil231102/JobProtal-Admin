@@ -118,6 +118,7 @@
                 int i = 1;
                 while (rs.next())
                 {
+                    String job_id = rs.getString("j_id");
                     String Company_Name = rs.getString("Company_Name");
 String Job_Title = rs.getString("job_add.Job_Title");
 //                    String phoneNumber = rs.getString("Phone_Number");
@@ -134,7 +135,10 @@ String Job_Title = rs.getString("job_add.Job_Title");
             <div class="col col-2" data-label="Company Name"><%= Job_Title %></div>
             <div class="col col-2" data-label="Job Title"><%= EmploymentType %></div>
             <div class="col col-2" data-label="Job Add Date"><%= jobAddDate %></div> <!-- Display formatted date -->
-            <div class="col col-2" data-label="Actions"><input type="button" class="btn" value="View"></div>
+            <div class="col col-2" data-label="Actions">
+                <input type="button" class="btn" value="View" onclick="window.location.href='.?pn=Jobinfo&j_id=<%=job_id%>';">
+            </div>
+
         </li>
         <%
                 }

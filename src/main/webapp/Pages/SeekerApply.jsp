@@ -110,6 +110,7 @@
             <div class="col col-2">Apply status</div>
             <div class="col col-2">Apply Date</div>
             <div class="col col-2">Actions</div>
+            <div class="col col-2">Actions</div>
 
         </li>
         <%
@@ -123,6 +124,7 @@
                 int i = 1;
                 while (rs.next())
                 {
+                    String a_id = rs.getString("a_id");
                     String Fname = rs.getString("fname");
                     String lname = rs.getString("lname");
                     String CompanyName = rs.getString("Company_Name");
@@ -155,7 +157,12 @@
                 }
             %>
             <div class="col col-2" data-label="Job Apply Date">21-08-2024</div>
-            <div class="col col-2" data-label="Actions"><input type="button" class="btn" value="View"></div>
+
+            <div class="col col-2" data-label="Actions"><input type="button" class="btn" value="View" href=""></div>
+            <form action="ApplyRemoveServlet" method="post">
+                <input type="hidden" name="apply_id" value="<%=a_id %>">
+                <button type="submit" class="btn btn-danger">Remove</button>
+            </form>
 
         </li>
         <%

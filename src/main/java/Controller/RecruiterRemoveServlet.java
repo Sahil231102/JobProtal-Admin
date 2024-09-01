@@ -25,12 +25,12 @@ public class RecruiterRemoveServlet extends HttpServlet {
 
         if(Remove)
         {
-            resp.sendRedirect("./?pn=RecruiterSignUp");
+            resp.sendRedirect("./?pn=RecruiterSignUp&s=recruiter");
         }
         else
         {
-            RequestDispatcher rd = req.getRequestDispatcher("./?pn=RecruiterSignUp");
-            rd.include(req,resp);
+            resp.sendRedirect("./?pn=RecruiterSignUp?s=recruiterNot");
+
         }
 
 

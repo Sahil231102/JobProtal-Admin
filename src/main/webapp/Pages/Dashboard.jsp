@@ -132,6 +132,7 @@
                     Statement st = con.createStatement();
                     ResultSet rs = st.executeQuery("select * from job_add inner join  recuruiter on job_add.r_id = recuruiter.r_id");
                     while (rs.next()) {
+
                         int job_id = rs.getInt("j_id");
                         String companyName = rs.getString("Company_name");
                         String job_Title = rs.getString("Job_Title");
@@ -161,7 +162,7 @@
                     </div>
                 </td>
                 <td><%=companyName%></td>
-                <td><%=job_Title%></td>
+                <td style="text-wrap:wrap;"><%=job_Title%></td>
 
                 <td><%=EmploymentType %></td>
               <td><%=jobAddDate%></td>
@@ -169,8 +170,11 @@
 
                 <td >
                     <input type="button" class="btn btn-primary" value="View" onclick="window.location.href='.?pn=Jobinfo&j_id=<%=job_id%>';">
+                    <form action="JobRemoveServlet" method="post">
+                        <input type="hidden" value="<%=job_id%>" name="job_id">
+                        <input type="submit" class="btn btn-danger" value="Remove">
+                    </form>
 
-                    <input type="button" class=" btn btn-danger" value="Remove">
                 </td>
             </tr>
             <%

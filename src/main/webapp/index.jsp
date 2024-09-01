@@ -230,6 +230,86 @@
 <script src="src/plugins/datatables/js/dataTables.responsive.min.js"></script>
 <script src="src/plugins/datatables/js/responsive.bootstrap4.min.js"></script>
 <script src="vendors/scripts/dashboard.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const Toast = Swal.mixin({
+            toast: true,
+            position: 'top-end',
+            showConfirmButton: false,
+            timer: 5000,
+            timerProgressBar: true,
+            didOpen: (toast) => {
+                toast.addEventListener('mouseenter', Swal.stopTimer);
+                toast.addEventListener('mouseleave', Swal.resumeTimer);
+            }
+        });
+
+        // Check for URL parameter indicating success (e.g., ?success=true)
+        const urlParams = new URLSearchParams(window.location.search);
+        const successParam = urlParams.get('s');
+
+        if (successParam && successParam === 'i') {
+            // Display success toast
+            Toast.fire({
+                icon: 'success',
+                title: 'Login successfully!'
+            });
+            urlParams.delete('s');
+            const newUrl = `./?pn=Dashboard`;
+            window.history.replaceState({}, document.title, newUrl);
+        }else if (successParam && successParam === 'sek') {
+            // Display success toast
+            Toast.fire({
+                icon: 'success',
+                title: 'Seeker Deleted Successfully!'
+            });
+
+            // Remove the 'sek' parameter from the URL and redirect
+            urlParams.delete('s');
+            const newUrl = `./?pn=SeekerSignUp`;
+            window.history.replaceState({}, document.title, newUrl);
+        }
+        else if (successParam && successParam === 'recruiter') {
+            // Display success toast
+            Toast.fire({
+                icon: 'success',
+                title: 'recruiter Deleted Successfully!'
+            });
+
+            // Remove the 'sek' parameter from the URL and redirect
+            urlParams.delete('s');
+            const newUrl = `./?pn=RecruiterSignUpData`;
+            window.history.replaceState({}, document.title, newUrl);
+        }
+        else if (successParam && successParam === 'recruiterNot') {
+            // Display success toast
+            Toast.fire({
+                icon: 'error',
+                title: 'recruiter Not  Deleted Successfully!'
+            });
+
+            // Remove the 'sek' parameter from the URL and redirect
+            urlParams.delete('s');
+            const newUrl = `./?pn=RecruiterSignUpData`;
+            window.history.replaceState({}, document.title, newUrl);
+        }
+        else if (successParam && successParam === 'applyRemove') {
+            // Display success toast
+            Toast.fire({
+                icon: 'error',
+                title: 'Seeker Apply Deleted Successfully!'
+            });
+
+            // Remove the 'sek' parameter from the URL and redirect
+            urlParams.delete('s');
+            const newUrl = `./?pn=applyRemove`;
+            window.history.replaceState({}, document.title, newUrl);
+        }
+    });
+</script>
+
 <!-- Google Tag Manager (noscript) -->
 <noscript
 ><iframe

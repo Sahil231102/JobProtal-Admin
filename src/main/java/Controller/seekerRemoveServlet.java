@@ -26,12 +26,13 @@ public class seekerRemoveServlet extends HttpServlet {
 
         if(Remove)
         {
-            resp.sendRedirect("./?pn=SeekerSignUp");
+            resp.sendRedirect("./?pn=SeekerSignUp&s=sek");
         }
         else
         {
-            RequestDispatcher rd = req.getRequestDispatcher("./?pn=SeekerSignUp");
-            rd.include(req,resp);
+            resp.sendRedirect("./?pn=SeekerSignUp");
+//            RequestDispatcher rd = req.getRequestDispatcher("./?pn=SeekerSignUp");
+//            rd.include(req,resp);
         }
 
 

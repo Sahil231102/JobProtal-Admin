@@ -29,9 +29,8 @@ public class LoginServlet extends HttpServlet {
             boolean AdminLogin = Ldb.LoginAdmin(loginModel);
 
             if (AdminLogin) {
-                out.println("<script>alert('Login Successfully')</script>");
-                RequestDispatcher rd = req.getRequestDispatcher("/index.jsp");
-                rd.forward(req, resp);
+                resp.sendRedirect(req.getContextPath() + "/index.jsp?s=i");
+
             } else {
                 out.println("<script>alert('incorrect phone number and password Please Enter Valid')</script>");
                 RequestDispatcher rd = getServletContext().getRequestDispatcher("/AdminLogin.jsp");

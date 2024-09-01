@@ -298,7 +298,7 @@
         else if (successParam && successParam === 'applyRemove') {
             // Display success toast
             Toast.fire({
-                icon: 'error',
+                icon: 'Success',
                 title: 'Seeker Apply Deleted Successfully!'
             });
 

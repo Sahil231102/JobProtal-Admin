@@ -136,7 +136,7 @@ String Job_Title = rs.getString("job_add.Job_Title");
             <div class="col col-2" data-label="Job Title"><%= EmploymentType %></div>
             <div class="col col-2" data-label="Job Add Date"><%= jobAddDate %></div> <!-- Display formatted date -->
             <div class="col col-2" data-label="Actions">
-                <input type="button" class="btn" value="View" onclick="window.location.href='.?pn=Jobinfo&j_id=<%=job_id%>';">
+                <input type="button" class="btn" value="View" onclick="window.location.href='.?pn=jobinfo&j_id=<%=job_id%>';">
             </div>
 
         </li>

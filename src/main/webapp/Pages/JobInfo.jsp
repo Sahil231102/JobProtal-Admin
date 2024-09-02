@@ -47,8 +47,8 @@
 <main>
 
   <%
-//    String id = request.getParameter("j_id");
-  String id ="5";
+    String id = request.getParameter("j_id");
+
 
   %>
   <%

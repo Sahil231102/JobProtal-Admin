@@ -58,38 +58,24 @@
         <div class="col-xl-3 mb-30">
             <div class="card-box height-100-p widget-style1">
                 <div class="d-flex flex-wrap align-items-center">
-                    <div class="progress-data">
-                        <div id="chart"></div>
-                    </div>
-                    <div class="widget-data">
-                        <div class="h4 mb-0">2020</div>
-                        <div class="weight-600 font-14">Contact</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-xl-3 mb-30">
-            <div class="card-box height-100-p widget-style1">
-                <div class="d-flex flex-wrap align-items-center">
-                    <div class="progress-data">
-                        <div id="chart2"></div>
-                    </div>
-                    <div class="widget-data">
-                        <div class="h4 mb-0">400</div>
-                        <div class="weight-600 font-14">Deals</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-xl-3 mb-30">
-            <div class="card-box height-100-p widget-style1">
-                <div class="d-flex flex-wrap align-items-center">
-                    <div class="progress-data">
-                        <div id="chart3"></div>
-                    </div>
-                    <div class="widget-data">
-                        <div class="h4 mb-0">350</div>
-                        <div class="weight-600 font-14">Campaign</div>
+                    <img src="./vendors/images/icons/job.png" height="20%" width="20%">
+                    <div class="widget-data" style="place-items: center">
+                        <%
+                            Class.forName("com.mysql.cj.jdbc.Driver");
+                            Connection con1 = DriverManager.getConnection("jdbc:mysql://localhost:3306/job-portal","root","");
+                            Statement st1 = con1.createStatement();
+                            ResultSet rs1 = st1.executeQuery("select count(j_id) from job_add ");
+
+                            while (rs1.next())
+                            {
+                                String number = rs1.getString(1);
+
+
+%>
+
+                        <div class="h4 mb-0"><%=number%></div>
+                        <div class="weight-600 font-14">Number Of Jobs</div> <%
+                            }  %>
                     </div>
                 </div>
             </div>
@@ -97,16 +83,80 @@
         <div class="col-xl-3 mb-30">
             <div class="card-box height-100-p widget-style1">
                 <div class="d-flex flex-wrap align-items-center">
-                    <div class="progress-data">
-                        <div id="chart4"></div>
-                    </div>
-                    <div class="widget-data">
-                        <div class="h4 mb-0">$6060</div>
-                        <div class="weight-600 font-14">Worth</div>
+                    <img src="./vendors/images/icons/job-offer.png" height="20%" width="20%">
+                    <div class="widget-data" style="place-items: center">
+                        <%
+                            Class.forName("com.mysql.cj.jdbc.Driver");
+                            Connection con2 = DriverManager.getConnection("jdbc:mysql://localhost:3306/job-portal","root","");
+                            Statement st2 = con2.createStatement();
+                            ResultSet rs2 = st2.executeQuery("select count(a_id) from job_apply");
+
+                            while (rs2.next())
+                            {
+                                String ApplyNo = rs2.getString(1);
+
+
+                        %>
+
+                        <div class="h4 mb-0"><%=ApplyNo%></div>
+                        <div class="weight-600 font-14">Number Of Apply</div> <%
+                        }  %>
                     </div>
                 </div>
             </div>
         </div>
+        <div class="col-xl-3 mb-30">
+            <div class="card-box height-100-p widget-style1">
+                <div class="d-flex flex-wrap align-items-center">
+                    <img src="./vendors/images/icons/job-seeker.png" height="20%" width="20%">
+                    <div class="widget-data" style="place-items: center">
+                        <%
+                            Class.forName("com.mysql.cj.jdbc.Driver");
+                            Connection con3 = DriverManager.getConnection("jdbc:mysql://localhost:3306/job-portal","root","");
+                            Statement st3 = con3.createStatement();
+                            ResultSet rs3 = st3.executeQuery("select count(s_id) from seeker");
+
+                            while (rs3.next())
+                            {
+                                String SeekerNo = rs3.getString(1);
+
+
+                        %>
+
+                        <div class="h4 mb-0"><%=SeekerNo%></div>
+                        <div class="weight-600 font-14">Number Of Seeker</div> <%
+                        }  %>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-3 mb-30">
+            <div class="card-box height-100-p widget-style1">
+                <div class="d-flex flex-wrap align-items-center">
+                    <img src="./vendors/images/icons/recruitment.png" height="20%" width="20%">
+                    <div class="widget-data" style="place-items: center">
+                        <%
+                            Class.forName("com.mysql.cj.jdbc.Driver");
+                            Connection con4 = DriverManager.getConnection("jdbc:mysql://localhost:3306/job-portal","root","");
+                            Statement st4 = con4.createStatement();
+                            ResultSet rs4 = st4.executeQuery("select count(r_id) from recuruiter");
+
+                            while (rs4.next())
+                            {
+                                String RecruiterNo = rs4.getString(1);
+
+
+                        %>
+
+                        <div class="h4 mb-0"><%=RecruiterNo%></div>
+                        <div class="weight-600 font-14">Number Of Recruiter</div> <%
+                        }  %>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
     </div>
 
     <div class="card-box d-lg-table-cell">

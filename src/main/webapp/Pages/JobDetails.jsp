@@ -120,7 +120,7 @@
                 {
                     String job_id = rs.getString("j_id");
                     String Company_Name = rs.getString("Company_Name");
-String Job_Title = rs.getString("job_add.Job_Title");
+                    String Job_Title = rs.getString("Job_Title");
 //                    String phoneNumber = rs.getString("Phone_Number");
                     String EmploymentType = rs.getString("EmploymentType");
                     String jobAddDate = rs.getString("formatted_date");
